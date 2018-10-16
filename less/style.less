@@ -1,0 +1,94 @@
+//out: ../css/style.css, compress: true, autoprefixer: true
+@import "reset";
+@import "fonts";
+@import "color";
+@import "anim";
+
+body {
+    font-family: Gothic725BdBT;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background-color: #db0006;
+    .logo_wrap {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 50px;
+        box-sizing: border-box;
+        width: 19%;
+        height: 10vw;
+        background-color: #fff;
+        border-radius: 0 0 10px 10px;
+        .logo {
+            width: 40%;
+            object-fit: contain;
+        }
+    }
+    .main_menu {
+        display: flex;
+        &_link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            box-sizing: border-box;
+            width: 8vw;
+            height: 60px;
+            line-height: 1;
+            color: #ffdba9;
+            text-align: center;
+            font-family: DINPro;
+            border-left: 1px solid #f1e1af;
+            border-right: 1px solid #f1e1af;
+            &:hover {
+                background-color: lighten(#db0006, 3%);
+            }
+        }
+    }
+}
+
+.screen_1 {
+    padding: 240px 0 0;
+    height: 1050px;
+    background-color: #fff1c5;
+    background-image: url(../img/screen_1_bg.jpg);
+    &_caption {
+        text-align: center;
+        color: @red;
+        font-size: 1.5rem;
+        font-family: Gothic725BlkBT;
+        text-transform: uppercase;
+    }
+    .counter {
+        position: relative;
+        margin: 10px auto 0;
+        width: 500px;
+        height: 140px;
+        line-height: 140px;
+        color: #fff1c5;
+        font-size: 5.75rem;
+        border-radius: 15px;
+        background-color: @red;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            background-color: @red;
+        }
+    }
+}
+
+@import "media";
