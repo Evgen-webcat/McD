@@ -10,30 +10,85 @@
 </head>
 
 <body>
-<header class="header">
-    <div class="logo_wrap">
-        <img src="img/McD-logo.png" alt="logo" class="logo">
-        <img src="img/MHD-logo.png" alt="logo" class="logo">
-    </div>
-    <nav>
-        <ul class="main_menu">
-            <li><a href="#" class="main_menu_link">Главная</a></li>
-            <li><a href="#" class="main_menu_link">Звездные гости</a></li>
-            <li><a href="#" class="main_menu_link">Галерея фото участников</a></li>
-            <li><a href="#" class="main_menu_link">История МакХэппи Дня</a></li>
-            <li><a href="#" class="main_menu_link">МакХэппи День в Беларуси</a></li>
-            <li><a href="#" class="main_menu_link">Контакты</a></li>
-        </ul>
-    </nav>
-</header>
-   <main>
-       <section class="screen_1">
-           <h5 class="screen_1_caption">С каждым днем нас больше!</h5>
-           <div class="counter">
+    <header class="header">
+        <div class="logo_wrap">
+            <img src="img/McD-logo.png" alt="logo" class="logo">
+            <img src="img/MHD-logo.png" alt="logo" class="logo">
+        </div>
+        <nav>
+            <ul class="main_menu">
+                <li><a href="#screen_1" class="main_menu_link">Главная</a></li>
+                <li><a href="#screen_2" class="main_menu_link">Звездные гости</a></li>
+                <li><a href="#screen_3" class="main_menu_link">Галерея фото участников</a></li>
+                <li><a href="#screen_4" class="main_menu_link">История МакХэппи Дня</a></li>
+                <li><a href="#screen_5" class="main_menu_link">МакХэппи День в Беларуси</a></li>
+                <li><a href="#screen_6" class="main_menu_link">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="screen_1" id="screen_1">
+            <h5 class="screen_1_caption">С каждым днем нас больше!</h5>
+            <div class="counter">
+                <img src="img/fries.svg" alt="fries" class="counter_img">
+                <div class="likes_number">123123</div>
+            </div>
+            <div class="hands">
 
-           </div>
-       </section>
-   </main>
+            </div>
+        </section>
+        <section class="screen_2" id="screen_2">
+            <h2 class="screen_2_caption">ДЕЛАЕМ ДОБРО ВМЕСТЕ!</h2>
+            <p class="screen_2_paragraph">Поучаствовать в акции «МакХэппи День» в этом году присоединились звезды белорусского телевидения, музыканты, блогеры. Ищите именитых гостей за кассами ресторанов «МакДональдстм» и вместе с ними делайте доброе дело! Узнайте в какой день и в каком ресторане будет звездный гость! </p>
+            <div class="stars">
+                <div class="star">
+                    <div class="star_photo">
+                        <img src="img/star_1.jpg" alt="photo" class="star_photo_img">
+                    </div>
+                    <div class="star_info"><span class="star_info_name">РОНАЛЬД МАКДОНАЛЬД</span> Директор</div>
+                    <div class="date">03.11.18</div>
+                    <div class="address">ул. Кирова,1</div>
+                </div>
+                 <div class="star">
+                    <div class="star_photo">
+                        <img src="img/star_2.jpg" alt="photo" class="star_photo_img">
+                    </div>
+                    <div class="star_info"><span class="star_info_name">Анна БОНД</span> Телеведущая</div>
+                    <div class="date">15.11.18</div>
+                    <div class="address">пр.Независимости,23 </div>
+                </div>
+            </div>
+            <div class="other_stars">
+                <a href="#" class="other_stars_button">другие звездные гости</a>
+            </div>
+        </section>
+        <section class="screen_3" id="screen_3">
+            <div class="img_wrap">
+                <img src="img/child.png" alt="child" class="child">
+            </div>
+            <div class="instagram">
+                <h3 class="instagram_caption">Помочь может каждый из вас!</h3>
+                <h3 class="instagram_caption"><span class="red">Присоединитесь к</span> #MакХэппиДень2018</h3>
+                <div class="instagram_photo">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                    <img src="img/star_2.jpg" alt="instagram_photo_img" class="instagram_photo_img">
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="dist/dependencies.js"></script>
     <script src="dist/app.js"></script>
 </body>

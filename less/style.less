@@ -5,7 +5,10 @@
 @import "anim";
 
 body {
+    color: @red;
     font-family: Gothic725BdBT;
+    background-color: #fff1c5;
+    background-image: url(../img/screen_1_bg.jpg);
 }
 
 .header {
@@ -17,6 +20,7 @@ body {
     width: 100%;
     height: 60px;
     background-color: #db0006;
+
     .logo_wrap {
         display: flex;
         justify-content: space-between;
@@ -26,13 +30,16 @@ body {
         height: 10vw;
         background-color: #fff;
         border-radius: 0 0 10px 10px;
+
         .logo {
             width: 40%;
             object-fit: contain;
         }
     }
+
     .main_menu {
         display: flex;
+
         &_link {
             display: flex;
             justify-content: center;
@@ -47,6 +54,7 @@ body {
             font-family: DINPro;
             border-left: 1px solid #f1e1af;
             border-right: 1px solid #f1e1af;
+
             &:hover {
                 background-color: lighten(#db0006, 3%);
             }
@@ -56,19 +64,23 @@ body {
 
 .screen_1 {
     padding: 240px 0 0;
-    height: 1050px;
-    background-color: #fff1c5;
-    background-image: url(../img/screen_1_bg.jpg);
+
     &_caption {
         text-align: center;
-        color: @red;
         font-size: 1.5rem;
         font-family: Gothic725BlkBT;
         text-transform: uppercase;
     }
+
     .counter {
+        z-index: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         position: relative;
         margin: 10px auto 0;
+        padding: 0 50px 0 25px;
+        box-sizing: border-box;
         width: 500px;
         height: 140px;
         line-height: 140px;
@@ -76,9 +88,11 @@ body {
         font-size: 5.75rem;
         border-radius: 15px;
         background-color: @red;
+
         &::after {
             content: '';
             position: absolute;
+            z-index: -1;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%) rotate(45deg);
@@ -87,6 +101,177 @@ body {
             height: 30px;
             border-radius: 7px;
             background-color: @red;
+        }
+
+        &_img {
+            height: 80%;
+        }
+    }
+
+    .hands {
+        height: 700px;
+        background-image: url(../img/hands_bg.png);
+        background-position: bottom;
+        background-size: cover;
+    }
+}
+
+.screen_2 {
+    padding: 50px 17% 50px 21%;
+    box-sizing: border-box;
+    font-family: Gothic725BlkBT;
+    background-color: #ffbc0d;
+    background-image: url(../img/screen_2_bg.jpg);
+
+    &_caption {
+        color: #e00405;
+        text-align: center;
+        font-size: 2.75rem;
+    }
+
+    &_paragraph {
+        margin-top: 30px;
+        font-size: 1.7rem;
+    }
+
+    .stars {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        .star {
+            font-size: 1.875rem;
+            padding: 0 10px;
+            box-sizing: border-box;
+
+            &_photo {
+                text-align: center;
+
+                &_img {
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 50%;
+                }
+            }
+
+            &_info {
+                margin-top: 20px;
+
+                &_name {
+                    text-transform: uppercase;
+                }
+            }
+
+            .date {
+                margin-top: 10px;
+                display: inline-block;
+                padding: 5px 10px;
+                box-sizing: border-box;
+                color: #ffbc0d;
+                border-radius: 5px;
+                background-color: @red;
+            }
+
+            .address {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .other_stars {
+        margin-top: 20px;
+        text-align: center;
+
+        &_button {
+            position: relative;
+            z-index: 0;
+            display: inline-block;
+            padding: 10px 30px;
+            box-sizing: border-box;
+            width: 330px;
+            color: #fff;
+            font-size: 1.812rem;
+            font-family: Gothic725BdBT;
+            border-radius: 15px;
+            text-transform: uppercase;
+            background-color: #df0405;
+
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                display: block;
+                width: 30px;
+                height: 30px;
+                border-radius: 7px;
+                background-color: #df0405;
+            }
+        }
+    }
+}
+
+.screen_3 {
+    position: relative;
+    padding: 50px 17% 70px;
+    box-sizing: border-box;
+    display: flex;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 10%;
+        height: 80%;
+        width: 10%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    &::before {
+        left: 50px;
+        background-image: url(../img/heart_left.png);
+        background-position: left;
+    }
+    &::after {
+        right: 50px;
+        background-image: url(../img/heart_right.png);
+        background-position: right;
+    }
+
+    .img_wrap {
+        width: 40%;
+        .child {
+            width: 100%;
+        }
+    }
+    .instagram {
+        width: 60%;
+        &_caption {
+            color: #df0405;
+            font-size: 2.5rem;
+            font-family: Gothic725BlkBT;
+            &:first-child {
+                text-transform: uppercase;
+            }
+            &:last-child {
+                font-size: 2.25rem;
+            }
+            .red {
+                color: @red;
+            }
+        }
+        &_photo {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            &_img {
+                margin-bottom: 10px;
+                width: 7.5vw;
+                height: 7.5vw;
+                border-radius: 50%;
+            }
         }
     }
 }
