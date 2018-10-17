@@ -5,14 +5,15 @@
 @import "anim";
 
 body {
-    color: @red;
+    color: @dark_red;
     font-family: Gothic725BdBT;
     background-color: #fff1c5;
     background-image: url(../img/screen_1_bg.jpg);
 }
 
 .header {
-    position: absolute;
+    z-index: 999;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
@@ -63,7 +64,10 @@ body {
 }
 
 .screen_1 {
+    position: relative;
     padding: 240px 0 0;
+    box-sizing: border-box;
+    height: 100vh;
 
     &_caption {
         text-align: center;
@@ -87,7 +91,7 @@ body {
         color: #fff1c5;
         font-size: 5.75rem;
         border-radius: 15px;
-        background-color: @red;
+        background-color: @dark_red;
 
         &::after {
             content: '';
@@ -100,7 +104,7 @@ body {
             width: 30px;
             height: 30px;
             border-radius: 7px;
-            background-color: @red;
+            background-color: @dark_red;
         }
 
         &_img {
@@ -109,10 +113,101 @@ body {
     }
 
     .hands {
-        height: 700px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 55vh;
         background-image: url(../img/hands_bg.png);
         background-position: bottom;
         background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        &::before {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-image: url(../img/screen_1_after.png);
+        }
+
+        .like_1 {
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            width: 60px;
+            height: 45px;
+            fill: @red;
+            opacity: 0;
+            animation: like 5s infinite;
+        }
+
+        .like_2 {
+            position: absolute;
+            top: 100px;
+            left: 23%;
+            width: 101px;
+            height: 75px;
+            fill: @dark_red;
+            opacity: 0;
+            animation: like 5s 2s infinite;
+        }
+
+        .like_3 {
+            position: absolute;
+            top: 70px;
+            left: 45%;
+            width: 60px;
+            height: 45px;
+            fill: @dark_red;
+            opacity: 0;
+            animation: like 5s 1s infinite;
+        }
+
+        .like_4 {
+            position: absolute;
+            top: 120px;
+            right: 20%;
+            width: 84px;
+            height: 63px;
+            fill: @red;
+            opacity: 0;
+            animation: like 5s 4s infinite;
+        }
+
+        .like_5 {
+            position: absolute;
+            top: 50px;
+            right: 5%;
+            width: 60px;
+            height: 45px;
+            fill: @dark_red;
+            opacity: 0;
+            animation: like 5s 3s infinite;
+        }
+        .hand {
+            position: absolute;
+            width: 250px;
+        }
+        .left_hand {
+            left: 30%;
+            bottom: -130px;
+            animation: hand_1 1s infinite;
+        }
+        .center_hand {
+            width: 300px;
+            left: ~"calc(50% - 150px)";
+            bottom: 0;
+            animation: hand_2 1s .5s infinite;
+        }
+        .right_hand {
+            right: 30%;
+            bottom: -50px;
+            animation: hand_3 1s .5s infinite;
+        }
     }
 }
 
@@ -124,7 +219,7 @@ body {
     background-image: url(../img/screen_2_bg.jpg);
 
     &_caption {
-        color: #e00405;
+        color: @red;
         text-align: center;
         font-size: 2.75rem;
     }
@@ -169,7 +264,7 @@ body {
                 box-sizing: border-box;
                 color: #ffbc0d;
                 border-radius: 5px;
-                background-color: @red;
+                background-color: @dark_red;
             }
 
             .address {
@@ -194,7 +289,7 @@ body {
             font-family: Gothic725BdBT;
             border-radius: 15px;
             text-transform: uppercase;
-            background-color: #df0405;
+            background-color: @red;
 
             &::before {
                 content: '';
@@ -207,7 +302,7 @@ body {
                 width: 30px;
                 height: 30px;
                 border-radius: 7px;
-                background-color: #df0405;
+                background-color: @red;
             }
         }
     }
@@ -240,15 +335,15 @@ body {
     }
 
     .img_wrap {
-        width: 40%;
+        width: 35%;
         .child {
             width: 100%;
         }
     }
     .instagram {
-        width: 60%;
+        width: 65%;
         &_caption {
-            color: #df0405;
+            color: @red;
             font-size: 2.5rem;
             font-family: Gothic725BlkBT;
             &:first-child {
@@ -258,7 +353,7 @@ body {
                 font-size: 2.25rem;
             }
             .red {
-                color: @red;
+                color: @dark_red;
             }
         }
         &_photo {
@@ -273,6 +368,51 @@ body {
                 border-radius: 50%;
             }
         }
+    }
+}
+
+.screen {
+    &_header {
+        padding: 0 10px;
+        box-sizing: border-box;
+        height: 200px;
+        line-height: 200px;
+        font-size: 2.75rem;
+        text-align: center;
+        font-family: Gothic725BlkBT;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    &_paragraph {
+        display: none;
+        padding: 50px 17% 50px;
+        box-sizing: border-box;
+        font-size: 1.7rem;
+    }
+}
+
+.screen_4 {
+    .screen_header {
+        position: relative;
+        color: @red;
+        background-color: @yellow;
+    .waves {
+        position: absolute;
+        bottom: 0;
+        left: 12%;
+        width: 30%;
+        transform: translateY(90%);
+    }
+    }
+    .screen_paragraph {
+        margin-top: 1%;
+    }
+}
+
+.screen_5 {
+    .screen_header {
+        color: #fff1c5;
+        background-color: @dark_red;
     }
 }
 

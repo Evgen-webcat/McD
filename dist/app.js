@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("$(document).ready(function () {\r\n    $('.main_menu_link').click(function (event) {\r\n        event.preventDefault();\r\n        var screen = $(this).attr('href');\r\n        var scrollTo = $(screen).offset().top;\r\n        \r\n        $('html, body').animate({scrollTop: scrollTo}, 1000);\r\n    });\r\n});\n\n//# sourceURL=webpack:///./js/app/app.js?");
+eval("$(document).ready(function () {\n    $('.main_menu_link').click(function (event) {\n        event.preventDefault();\n        var screen = $(this).attr('href');\n        var scrollTo = $(screen).offset().top;\n\n        $('html, body').animate({scrollTop: scrollTo}, 1000);\n    });\n    \n    $('.screen_header').click(function () {\n        $(this).parent().find('.screen_paragraph').slideToggle();\n    });\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
 
 /***/ }),
 

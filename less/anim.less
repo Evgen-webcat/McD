@@ -1,6 +1,31 @@
 //out: null
 
-@keyframes anim {
-    0%{}
-    100%{}
+@keyframes like {
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-300px);}
+}
+
+@keyframes hand_1 {
+    0% {transform: translate(0) rotate(0);}
+    50% {transform: translate(30px, -30px) rotate(3deg);}
+    100% {transform: translate(0) rotate(0);}
+}
+
+@keyframes hand_2 {
+    0% {transform: translate(0);}
+    50% {transform: translateY(30px);}
+    100% {transform: translate(0);}
+}
+
+@keyframes hand_3 {
+    0% {transform: translate(0) rotate(0);}
+    50% {transform: translate(30px, 30px) rotate(3deg);}
+    100% {transform: translate(0) rotate(0);}
 }

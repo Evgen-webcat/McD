@@ -6,4 +6,8 @@ $(document).ready(function () {
 
         $('html, body').animate({scrollTop: scrollTo}, 1000);
     });
+
+    $('.screen_header').click(function () {
+        $(this).parent().find('.screen_paragraph').slideToggle();
+    });
 });
