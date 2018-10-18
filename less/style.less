@@ -123,6 +123,7 @@ body {
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
+
         &::before {
             content: '';
             z-index: 1;
@@ -188,21 +189,25 @@ body {
             opacity: 0;
             animation: like 5s 3s infinite;
         }
+
         .hand {
             position: absolute;
             width: 250px;
         }
+
         .left_hand {
             left: 30%;
             bottom: -130px;
             animation: hand_1 1s infinite;
         }
+
         .center_hand {
             width: 300px;
             left: ~"calc(50% - 150px)";
             bottom: 0;
             animation: hand_2 1s .5s infinite;
         }
+
         .right_hand {
             right: 30%;
             bottom: -50px;
@@ -212,6 +217,7 @@ body {
 }
 
 .screen_2 {
+    position: relative;
     padding: 50px 17% 50px 21%;
     box-sizing: border-box;
     font-family: Gothic725BlkBT;
@@ -306,6 +312,115 @@ body {
             }
         }
     }
+
+    .calendar {
+        z-index: 11;
+        display: none;
+        position: absolute;
+        bottom: 15px;
+        left: 45%;
+        padding: 50px 40px;
+        box-sizing: border-box;
+        width: 800px;
+        height: 600px;
+        border: 5px solid #fff;
+        border-radius: 15px;
+        background-color: @red;
+
+        .day {
+            display: inline-block;
+            width: 13.5%;
+            text-align: center;
+            color: #fff1c5;
+            font-size: 1.375rem;
+            text-transform: uppercase;
+        }
+
+        .date_list {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            .date {
+                position: relative;
+                margin: 8px;
+                width: 84px;
+                height: 84px;
+                border-radius: 50%;
+                background-color: #fff;
+
+                &_number {
+                    position: absolute;
+                    right: 15px;
+                    bottom: 15px;
+                    color: @red;
+                    font-size: 1.375rem;
+                }
+
+                .star_date {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-size: cover;
+                    &_info {
+                        display: none;
+                        z-index: 15;
+                        position: absolute;
+                        left: 20%;
+                        bottom: 50%;
+                        padding: 10px;
+                        box-sizing: border-box;
+                        font-size: 1rem;
+                        border-radius: 5px;
+                        background-color: #fff;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, .7);
+                    }
+                }
+
+                .macdonald {
+                    background-image: url(../img/star_1.jpg);
+                }
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3) {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .close_calendar_button {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            display: block;
+            width: 30px;
+            height: 30px;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%) rotate(45deg);
+                display: block;
+                width: 30px;
+                height: 5px;
+                border-radius: 5px;
+                background-color: #fff;
+            }
+            &::after {
+                transform: translate(-50%) rotate(-45deg);
+            }
+            &:hover {
+                opacity: .9;
+            }
+        }
+    }
 }
 
 .screen_3 {
@@ -313,6 +428,7 @@ body {
     padding: 50px 17% 70px;
     box-sizing: border-box;
     display: flex;
+
     &::before,
     &::after {
         content: '';
@@ -323,11 +439,13 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
     }
+
     &::before {
         left: 50px;
         background-image: url(../img/heart_left.png);
         background-position: left;
     }
+
     &::after {
         right: 50px;
         background-image: url(../img/heart_right.png);
@@ -336,31 +454,39 @@ body {
 
     .img_wrap {
         width: 35%;
+
         .child {
             width: 100%;
         }
     }
+
     .instagram {
         width: 65%;
+
         &_caption {
             color: @red;
             font-size: 2.5rem;
             font-family: Gothic725BlkBT;
+
             &:first-child {
                 text-transform: uppercase;
             }
+
             &:last-child {
                 font-size: 2.25rem;
             }
+
             .red {
                 color: @dark_red;
             }
         }
+
         &_photo {
             margin-top: 40px;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+
             &_img {
                 margin-bottom: 10px;
                 width: 7.5vw;
@@ -383,6 +509,7 @@ body {
         text-transform: uppercase;
         cursor: pointer;
     }
+
     &_paragraph {
         display: none;
         padding: 50px 17% 50px;
@@ -396,14 +523,16 @@ body {
         position: relative;
         color: @red;
         background-color: @yellow;
-    .waves {
-        position: absolute;
-        bottom: 0;
-        left: 12%;
-        width: 30%;
-        transform: translateY(90%);
+
+        .waves {
+            position: absolute;
+            bottom: 0;
+            left: 12%;
+            width: 30%;
+            transform: translateY(90%);
+        }
     }
-    }
+
     .screen_paragraph {
         margin-top: 1%;
     }
@@ -414,6 +543,16 @@ body {
         color: #fff1c5;
         background-color: @dark_red;
     }
+}
+
+.locker {
+    display: none;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 @import "media";

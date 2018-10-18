@@ -93,18 +93,29 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("$(document).ready(function () {\n    $('.main_menu_link').click(function (event) {\n        event.preventDefault();\n        var screen = $(this).attr('href');\n        var scrollTo = $(screen).offset().top;\n\n        $('html, body').animate({scrollTop: scrollTo}, 1000);\n    });\n    \n    $('.screen_header').click(function () {\n        $(this).parent().find('.screen_paragraph').slideToggle();\n    });\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
+eval("$(document).ready(function () {\n    $('.main_menu_link').click(function (event) {\n        event.preventDefault();\n        var screen = $(this).attr('href');\n        var scrollTo = $(screen).offset().top;\n\n        $('html, body').animate({scrollTop: scrollTo}, 1000);\n    });\n    \n    $('.other_stars_button').click(function (event) {\n        event.preventDefault();\n        $('.calendar, .locker').fadeIn(150);\n    });\n    \n    $('.close_calendar_button, .locker').click(function (event) {\n        event.preventDefault();\n        $('.calendar, .locker').fadeOut(150);\n    });\n\n    $('.screen_header').click(function () {\n        $(this).parent().find('.screen_paragraph').slideToggle();\n    });\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
+
+/***/ }),
+
+/***/ "./js/app/counter.js":
+/*!***************************!*\
+  !*** ./js/app/counter.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("$(document).ready(function () {\r\n    var startNumber = 200;\r\n    var startDay = 18;\r\n\r\n    function setCount() {\r\n        var date = new Date();\r\n        var day = (date.getDate() - startDay) * 1440;\r\n        var count = date.getHours() * 60 + (date.getMinutes() + 3) + day + startNumber;\r\n        $('#counter').text(count);\r\n    }\r\n\r\n    setCount();\r\n    setInterval(setCount, 60000);\r\n});\r\n\n\n//# sourceURL=webpack:///./js/app/counter.js?");
 
 /***/ }),
 
 /***/ 0:
-/*!*****************************!*\
-  !*** multi ./js/app/app.js ***!
-  \*****************************/
+/*!*************************************************!*\
+  !*** multi ./js/app/app.js ./js/app/counter.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! ./js/app/app.js */\"./js/app/app.js\");\n\n\n//# sourceURL=webpack:///multi_./js/app/app.js?");
+eval("__webpack_require__(/*! ./js/app/app.js */\"./js/app/app.js\");\nmodule.exports = __webpack_require__(/*! ./js/app/counter.js */\"./js/app/counter.js\");\n\n\n//# sourceURL=webpack:///multi_./js/app/app.js_./js/app/counter.js?");
 
 /***/ })
 
