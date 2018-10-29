@@ -9,23 +9,32 @@
         opacity: 1;
     }
     100%{
-        transform: translateY(-300px);}
+        transform: translateY(-30vh);
+    }
 }
 
-@keyframes hand_1 {
+@keyframes hand_left {
     0% {transform: translate(0) rotate(0);}
-    50% {transform: translate(30px, -30px) rotate(3deg);}
+    30% {transform: translate(0) rotate(-5deg);}
+    70% {transform: translate(-20px, -10px) rotate(-3deg);}
     100% {transform: translate(0) rotate(0);}
 }
 
-@keyframes hand_2 {
-    0% {transform: translate(0);}
-    50% {transform: translateY(30px);}
-    100% {transform: translate(0);}
+@keyframes hand_center {
+     0% {transform: translate(0) rotate(0);}
+    30% {transform: translate(30px, 0) rotate(-5deg);}
+    70% {transform: translate(-10px, 0) rotate(5deg);}
+    100% {transform: translate(0) rotate(0);}
 }
 
-@keyframes hand_3 {
+@keyframes hand_right {
     0% {transform: translate(0) rotate(0);}
-    50% {transform: translate(30px, 30px) rotate(3deg);}
+    50% {transform: translate(30px, 10px) rotate(-5deg);}
     100% {transform: translate(0) rotate(0);}
+}
+
+@keyframes hand_bg {
+    0% {background-position: center 0;}
+    50% {background-position: center 20px;}
+    100% {background-position: center 0;}
 }

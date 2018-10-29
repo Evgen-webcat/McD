@@ -1,5 +1,295 @@
 //out: null
 
-@media (max-width: 1200px) {
+@media (max-width: 1680px) {
+    html {
+        font-size: 10px;
+    }
 
+    .screen_1 {
+        padding: 150px 0 0;
+
+        .counter {
+            padding: 0 25px;
+            width: 270px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 5rem;
+        }
+
+        .hands {
+            .like_1 {
+                width: 40px;
+                height: 30px;
+            }
+
+            .like_2 {
+                width: 50px;
+                height: 37px;
+            }
+
+            .like_3 {
+                width: 40px;
+                height: 30px;
+            }
+
+            .like_4 {
+                width: 45px;
+                height: 33px;
+            }
+
+            .like_5 {
+                width: 40px;
+                height: 30px;
+            }
+
+            .hand {
+                position: absolute;
+                width: 150px;
+            }
+
+            .left_hand {
+                left: 30%;
+                bottom: -50px;
+            }
+
+            .center_hand {
+                width: 200px;
+                left: ~"calc(50% - 100px)";
+                bottom: -120px;
+            }
+
+            .right_hand {
+                right: 30%;
+                bottom: -30px;
+            }
+        }
+    }
+
+    .screen_2 {
+        .other_stars_button {
+            width: 250px;
+        }
+
+        .stars .star_photo_img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .calendar {
+            padding: 20px;
+            width: 500px;
+            height: 380px;
+
+            .date_list .date {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+
+    .screen_header {
+        height: 100px;
+        line-height: 100px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        top: 0;
+        padding: 0 10%;
+        box-sizing: border-box;
+        justify-content: space-between;
+        height: 40px;
+
+        .logo_wrap {
+            padding: 10px 30px;
+            width: 200px;
+            height: 70px;
+        }
+
+        .main_menu {
+            display: none;
+            z-index: -1;
+            padding: 50px 0;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 40px;
+            background-color: #db0006;
+
+            &_link {
+                width: 100%;
+                border: 0;
+            }
+        }
+
+        .burger {
+            display: block;
+        }
+    }
+
+    .screen_1 {
+        padding: 100px 0 0;
+        min-height: 0;
+
+        .hands {
+            min-height: 0;
+
+            .left_hand {
+                left: 20%;
+                bottom: -30px;
+            }
+
+            .center_hand {
+                bottom: -70px;
+            }
+
+            .right_hand {
+                right: 20%;
+                bottom: -20px;
+            }
+        }
+    }
+
+    .screen_2 {
+        .calendar {
+            padding: 10px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+
+            .day {
+                display: none;
+            }
+
+            .date_list {
+                justify-content: space-around;
+
+                .date {
+                    margin: 2px 1px;
+                    width: 12vw;
+                    height: 12vw;
+                    &_number {
+                        right: 20%;
+                        bottom: 20%;
+                    }
+                }
+            }
+        }
+    }
+
+    .screen_3 {
+
+        &::before,
+        &::after {
+            display: none;
+        }
+
+        .img_wrap {
+            width: 0;
+
+            .child {
+                position: absolute;
+                top: 150px;
+                left: 10%;
+                width: auto;
+                height: 43vw;
+                object-fit: contain;
+            }
+        }
+
+        .instagram {
+            width: 100%;
+            text-align: center;
+
+            &_photo {
+                float: right;
+                margin-top: 40px;
+
+                &_img {
+                    width: 12.5vw;
+                    height: 12.5vw;
+                }
+            }
+        }
+    }
+
+    .screen_2,
+    .screen_3 {
+        padding: 50px 10%;
+    }
+
+    .screen_4 .screen_paragraph,
+    .screen_4 .screen_paragraph:nth-child(2),
+    .screen_5 .screen_paragraph,
+    .screen_5 .screen_paragraph:nth-child(2) {
+        padding: 0 10% 30px;
+    }
+
+    .screen_4 .screen_paragraph:nth-child(2),
+    .screen_5 .screen_paragraph:nth-child(2) {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .screen_1 .hands {
+        .hand {
+            width: 100px;
+        }
+
+        .left_hand {
+            left: 5%;
+        }
+
+        .center_hand {
+            width: 130px;
+            left: ~"calc(50% - 75px)";
+        }
+
+        .right_hand {
+            right: 5%;
+        }
+    }
+
+    .screen_2 .stars .star {
+        margin-bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .screen_3 {
+        .img_wrap .child {
+            display: none;
+        }
+
+        .instagram_photo {
+            width: 100%;
+
+            &_img {
+                width: 25.5vw;
+                height: 25.5vw;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        .logo_wrap {
+            display: none;
+        }
+
+        .main_menu_link {
+            font-size: 2rem;
+        }
+    }
+
+    .screen_4,
+    .screen_5 {
+        .screen_header_caption {
+            font-size: 1.7rem;
+        }
+    }
 }

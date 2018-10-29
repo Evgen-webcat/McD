@@ -3,6 +3,7 @@
 @import "fonts";
 @import "color";
 @import "anim";
+@import "magnific-popup";
 
 body {
     color: @dark_red;
@@ -11,10 +12,14 @@ body {
     background-image: url(../img/screen_1_bg.jpg);
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
 .header {
     z-index: 999;
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 0;
     display: flex;
     justify-content: center;
@@ -52,12 +57,51 @@ body {
             line-height: 1;
             color: #ffdba9;
             text-align: center;
+            font-size: 16px;
             font-family: DINPro;
             border-left: 1px solid #f1e1af;
             border-right: 1px solid #f1e1af;
 
             &:hover {
                 background-color: lighten(#db0006, 3%);
+            }
+        }
+    }
+
+    .burger {
+        position: relative;
+        display: none;
+        width: 40px;
+        height: 40px;
+
+        &_line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #fff;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 5px;
+                border-radius: 10px;
+                background-color: #fff;
+            }
+
+            &::before {
+                top: -10px;
+            }
+
+            &::after {
+                bottom: -10px;
             }
         }
     }
@@ -68,6 +112,7 @@ body {
     padding: 240px 0 0;
     box-sizing: border-box;
     height: 100vh;
+    min-height: 700px;
 
     &_caption {
         text-align: center;
@@ -77,7 +122,7 @@ body {
     }
 
     .counter {
-        z-index: 0;
+        z-index: 1;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -118,22 +163,12 @@ body {
         left: 0;
         width: 100%;
         height: 55vh;
+        min-height: 450px;
         background-image: url(../img/hands_bg.png);
         background-position: bottom;
         background-size: cover;
         background-repeat: no-repeat;
-        overflow: hidden;
-
-        &::before {
-            content: '';
-            z-index: 1;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background-image: url(../img/screen_1_after.png);
-        }
+        animation: hand_bg 3s linear infinite;
 
         .like_1 {
             position: absolute;
@@ -198,20 +233,23 @@ body {
         .left_hand {
             left: 30%;
             bottom: -130px;
-            animation: hand_1 1s infinite;
+            transform-origin: bottom;
+            animation: hand_left 3s linear infinite;
         }
 
         .center_hand {
             width: 300px;
             left: ~"calc(50% - 150px)";
-            bottom: 0;
-            animation: hand_2 1s .5s infinite;
+            bottom: -150px;
+            transform-origin: bottom;
+            animation: hand_center 3s .3s linear infinite;
         }
 
         .right_hand {
             right: 30%;
             bottom: -50px;
-            animation: hand_3 1s .5s infinite;
+            transform-origin: bottom;
+            animation: hand_right 3s .5s linear infinite;
         }
     }
 }
@@ -239,6 +277,7 @@ body {
         margin-top: 30px;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
 
         .star {
             font-size: 1.875rem;
@@ -318,7 +357,7 @@ body {
         display: none;
         position: absolute;
         bottom: 15px;
-        left: 45%;
+        left: 40%;
         padding: 50px 40px;
         box-sizing: border-box;
         width: 800px;
@@ -365,18 +404,53 @@ body {
                     height: 100%;
                     border-radius: 50%;
                     background-size: cover;
+                    cursor: pointer;
+
                     &_info {
                         display: none;
                         z-index: 15;
                         position: absolute;
                         left: 20%;
                         bottom: 50%;
-                        padding: 10px;
+                        padding: 20px;
                         box-sizing: border-box;
                         font-size: 1rem;
                         border-radius: 5px;
                         background-color: #fff;
-                        box-shadow: 0 0 5px rgba(0, 0, 0, .7);
+                        box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.22);
+                        cursor: default;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -10px;
+                            left: 20px;
+                            border-top: 10px solid #fff;
+                            border-left: 10px solid transparent;
+                            border-right: 10px solid transparent;
+                        }
+
+                        &_name {
+                            color: #a72923;
+                            white-space: nowrap;
+                        }
+
+                        &_prof {
+                            margin-top: 5px;
+                            color: #a2a2a2;
+                            font-size: .875rem;
+                            text-transform: lowercase;
+                        }
+
+                        &_day {
+                            margin: 15px 0;
+                            color: #ffcf46;
+                        }
+
+                        &_address {
+                            color: #242424;
+                            font-size: .875rem;
+                        }
                     }
                 }
 
@@ -384,9 +458,15 @@ body {
                     background-image: url(../img/star_1.jpg);
                 }
 
+                .bond {
+                    background-image: url(../img/star_2.jpg);
+                }
+
                 &:nth-child(1),
                 &:nth-child(2),
-                &:nth-child(3) {
+                &:nth-child(3),
+                &:nth-last-child(2),
+                &:nth-last-child(1) {
                     background-color: transparent;
                 }
             }
@@ -413,9 +493,11 @@ body {
                 border-radius: 5px;
                 background-color: #fff;
             }
+
             &::after {
                 transform: translate(-50%) rotate(-45deg);
             }
+
             &:hover {
                 opacity: .9;
             }
@@ -486,6 +568,7 @@ body {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            width: 40vw;
 
             &_img {
                 margin-bottom: 10px;
@@ -534,7 +617,13 @@ body {
     }
 
     .screen_paragraph {
-        margin-top: 1%;
+        margin-top: 0;
+        padding: 0 17% 50px;
+
+        &:nth-child(2) {
+            margin-top: 1%;
+            padding: 50px 17% 50px;
+        }
     }
 }
 
@@ -543,6 +632,29 @@ body {
         color: #fff1c5;
         background-color: @dark_red;
     }
+
+    .screen_paragraph {
+        margin-top: 0;
+        padding: 0 17% 50px;
+
+        &:nth-child(2) {
+            margin-top: 1%;
+            padding: 50px 17% 50px;
+        }
+
+        .mcd_link {
+            color: @red;
+            &:hover {
+                color: lighten(@red, 10%);
+            }
+        }
+    }
+}
+
+.sup {
+    display: inline-block;
+    transform: translateY(-7px);
+    font-size: 1rem;
 }
 
 .locker {
