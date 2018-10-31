@@ -42,14 +42,10 @@
                 height: 30px;
             }
 
-            .hand {
-                position: absolute;
-                width: 150px;
-            }
-
             .left_hand {
                 left: 30%;
                 bottom: -50px;
+                width: 150px;
             }
 
             .center_hand {
@@ -61,6 +57,7 @@
             .right_hand {
                 right: 30%;
                 bottom: -30px;
+                width: 150px;
             }
         }
     }
@@ -135,6 +132,12 @@
         .hands {
             min-height: 0;
 
+            .hands_1,
+            .hands_2,
+            .hands_3 {
+                display: none;
+            }
+
             .left_hand {
                 left: 20%;
                 bottom: -30px;
@@ -170,6 +173,7 @@
                     margin: 2px 1px;
                     width: 12vw;
                     height: 12vw;
+
                     &_number {
                         right: 20%;
                         bottom: 20%;
@@ -278,7 +282,8 @@
 @media (max-width: 500px) {
     .header {
         .logo_wrap {
-            display: none;
+            padding: 10px 20px;
+            width: 150px;
         }
 
         .main_menu_link {

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var startNumber = 200;
-    var startDay = 26;
+    var startDay = 1;
     var interval;
 
 

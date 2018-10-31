@@ -59,7 +59,6 @@ body {
             text-align: center;
             font-size: 16px;
             font-family: DINPro;
-            border-left: 1px solid #f1e1af;
             border-right: 1px solid #f1e1af;
 
             &:hover {
@@ -227,14 +226,52 @@ body {
 
         .hand {
             position: absolute;
-            width: 250px;
+            transition: 2s linear;
+
+            &.hidden {
+                transform: translateY(100%);
+            }
+        }
+
+        .hands_1 {
+            left: 50px;
+            bottom: -30px;
+            height: 70%;
+
+            &.anim {
+                animation: hand_left 3s linear infinite;
+            }
+        }
+
+        .hands_2 {
+            left: 40%;
+            bottom: -30px;
+            height: 70%;
+
+            &.anim {
+                animation: hand_right 3s linear infinite;
+            }
+        }
+
+        .hands_3 {
+            right: 50px;
+            bottom: -30px;
+            height: 70%;
+
+            &.anim {
+                animation: hand_left 3s .3s linear infinite;
+            }
         }
 
         .left_hand {
             left: 30%;
             bottom: -130px;
+            width: 250px;
             transform-origin: bottom;
-            animation: hand_left 3s linear infinite;
+
+            &.anim {
+                animation: hand_left 3s .5s linear infinite;
+            }
         }
 
         .center_hand {
@@ -242,14 +279,21 @@ body {
             left: ~"calc(50% - 150px)";
             bottom: -150px;
             transform-origin: bottom;
-            animation: hand_center 3s .3s linear infinite;
+
+            &.anim {
+                animation: hand_center 3s .3s linear infinite;
+            }
         }
 
         .right_hand {
             right: 30%;
             bottom: -50px;
+            width: 250px;
             transform-origin: bottom;
-            animation: hand_right 3s .5s linear infinite;
+
+            &.anim {
+                animation: hand_right 3s .5s linear infinite;
+            }
         }
     }
 }
@@ -443,23 +487,32 @@ body {
                         }
 
                         &_day {
-                            margin: 15px 0;
+                            margin: 10px 0;
                             color: #ffcf46;
                         }
 
                         &_address {
                             color: #242424;
                             font-size: .875rem;
+                            white-space: nowrap;
                         }
                     }
                 }
 
-                .macdonald {
+                .star_1 {
                     background-image: url(../img/star_1.jpg);
                 }
 
-                .bond {
+                .star_2 {
                     background-image: url(../img/star_2.jpg);
+                }
+
+                .star_3 {
+                    background-image: url(../img/star_3.jpg);
+                }
+
+                .star_4 {
+                    background-image: url(../img/star_4.jpg);
                 }
 
                 &:nth-child(1),
@@ -640,13 +693,6 @@ body {
         &:nth-child(2) {
             margin-top: 1%;
             padding: 50px 17% 50px;
-        }
-
-        .mcd_link {
-            color: @red;
-            &:hover {
-                color: lighten(@red, 10%);
-            }
         }
     }
 }

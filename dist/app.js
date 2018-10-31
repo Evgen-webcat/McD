@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("$(document).ready(function () {\n    'use strict';\n    var gallery;\n    \n    $('.burger').click(function (event) {\n        event.preventDefault();\n        $('.main_menu').slideToggle();\n    });\n    \n    $('.menu_link').click(function (event) {\n        event.preventDefault();\n        var screen = $(this).attr('href');\n        var scrollTo = $(screen).offset().top;\n\n        $('html, body').animate({scrollTop: scrollTo}, 1000);\n        \n        if ($(window).width() < 1025) {\n            $('.main_menu').slideUp();\n        }\n    });\n\n    $('.other_stars_button').click(function (event) {\n        event.preventDefault();\n        $('.calendar, .locker').fadeIn(150);\n    });\n\n    $('.close_calendar_button, .locker').click(function (event) {\n        event.preventDefault();\n        $('.calendar, .locker').fadeOut(150);\n    });\n\n    $('.screen_header').click(function () {\n        $(this).parent().find('.screen_paragraph').slideToggle();\n    });\n    \n    $('.star_date').click(function (event) {\n        event.stopPropagation();\n        $('.star_date').not(this).find('.star_date_info').fadeOut(100);\n        $(this).find('.star_date_info').fadeIn(100);\n    });\n    $('body').click(function () {\n        $('.star_date_info').fadeOut(100);\n    });\n    \n    $('.instagram_photo').magnificPopup({\n        delegate: 'a',\n        type: 'image',\n        gallery: {\n            enabled: true\n        }\n    });\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
+eval("$(document).ready(function () {\n    'use strict';\n    var gallery;\n\n    $('.burger').click(function (event) {\n        event.preventDefault();\n        $('.main_menu').slideToggle();\n    });\n\n    $('.menu_link').click(function (event) {\n        event.preventDefault();\n        var screen = $(this).attr('href');\n        var scrollTo = $(screen).offset().top;\n\n        $('html, body').animate({\n            scrollTop: scrollTo\n        }, 1000);\n\n        if ($(window).width() < 1025) {\n            $('.main_menu').slideUp();\n        }\n    });\n\n    $('.other_stars_button').click(function (event) {\n        event.preventDefault();\n        $('.calendar, .locker').fadeIn(150);\n    });\n\n    $('.close_calendar_button, .locker').click(function (event) {\n        event.preventDefault();\n        $('.calendar, .locker').fadeOut(150);\n    });\n\n    $('.screen_header').click(function () {\n        var scrollTo = $(this).offset().top;\n        $('html, body').animate({\n            scrollTop: scrollTo\n        }, 1000);\n        $(this).parent().find('.screen_paragraph').slideToggle();\n    });\n\n    $('.star_date').click(function (event) {\n        event.stopPropagation();\n        $('.star_date').not(this).find('.star_date_info').fadeOut(100);\n        $(this).find('.star_date_info').fadeIn(100);\n    });\n    $('body').click(function () {\n        $('.star_date_info').fadeOut(100);\n    });\n\n    setTimeout(function () {\n        $('.left_hand, .center_hand, .right_hand, .hands_1, .hands_2, .hands_3').removeClass('hidden');\n    }, 500);\n    setTimeout(function () {\n        $('.left_hand, .center_hand, .right_hand, .hands_1, .hands_2, .hands_3').addClass('anim');\n    }, 2500);\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
 
 /***/ }),
 
@@ -104,18 +104,29 @@ eval("$(document).ready(function () {\n    'use strict';\n    var gallery;\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("$(document).ready(function () {\n    var startNumber = 200;\n    var startDay = 26;\n    var interval;\n\n\n    function setCount() {\n        var date = new Date();\n        var day;\n        var hours = date.getHours();\n        var minutes = date.getMinutes();\n        var seconds = date.getSeconds();\n        var currentDay = date.getDate();\n        var divisor;\n        var count;\n        var nightSecond = 25200;\n        var nightPoint = 840;\n        \n        if (currentDay >= startDay) {\n            day = (date.getDate() - startDay) * 6960;\n        } else {\n            day = 0;\n        }\n        \n        var currentSeconds = hours * 3600 + (minutes * 60) + seconds;\n        \n        if (hours >= 0 && hours < 7) {\n            interval = 30000;\n            count = Math.ceil(currentSeconds / 30) + day + startNumber;\n        } else {\n            interval = 10000;\n            count = (Math.ceil((currentSeconds - nightSecond) / 10)) + nightPoint + day + startNumber;\n        }\n            \n        var currentCount = count + startNumber\n        $('#counter').text(count);\n    }\n\n    setCount();\n    setInterval(setCount, interval);\n});\n\n\n//# sourceURL=webpack:///./js/app/counter.js?");
+eval("$(document).ready(function () {\n    var startNumber = 200;\n    var startDay = 1;\n    var interval;\n\n\n    function setCount() {\n        var date = new Date();\n        var day;\n        var hours = date.getHours();\n        var minutes = date.getMinutes();\n        var seconds = date.getSeconds();\n        var currentDay = date.getDate();\n        var divisor;\n        var count;\n        var nightSecond = 25200;\n        var nightPoint = 840;\n\n        if (currentDay >= startDay) {\n            day = (date.getDate() - startDay) * 6960;\n        } else {\n            day = 0;\n        }\n\n        var currentSeconds = hours * 3600 + (minutes * 60) + seconds;\n\n        if (hours >= 0 && hours < 7) {\n            interval = 30000;\n            count = Math.ceil(currentSeconds / 30) + day + startNumber;\n        } else {\n            interval = 10000;\n            count = (Math.ceil((currentSeconds - nightSecond) / 10)) + nightPoint + day + startNumber;\n        }\n\n        var currentCount = count + startNumber\n        $('#counter').text(count);\n    }\n\n    setCount();\n    setInterval(setCount, interval);\n});\n\n\n//# sourceURL=webpack:///./js/app/counter.js?");
+
+/***/ }),
+
+/***/ "./js/app/gallery.js":
+/*!***************************!*\
+  !*** ./js/app/gallery.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("$(document).ready(function () {\r\n    var gallery = [\r\n        \"photo_1.jpg\"\r\n    ];\r\n    \r\n    function photoLenght () {\r\n        var screen;\r\n        \r\n        if ($(window).width() > 1024) {\r\n            screen = 15;\r\n        } else {\r\n            screen = 9;\r\n        }\r\n        return screen;\r\n    }\r\n    \r\n    for (var i = 0; i < photoLenght (); i++) {\r\n        if (gallery[i]) {\r\n            $('.instagram_photo').append('<a href=\"img/gallery/' + gallery[i] + '\"><img src=\"img/gallery/thumb_' + gallery[i] + '\" alt=\"instagram_photo_img\" class=\"instagram_photo_img\"></a>');\r\n        }\r\n    }\r\n\r\n    $('.instagram_photo').magnificPopup({\r\n        delegate: 'a',\r\n        type: 'image',\r\n        gallery: {\r\n            enabled: true\r\n        }\r\n    });\r\n});\r\n\n\n//# sourceURL=webpack:///./js/app/gallery.js?");
 
 /***/ }),
 
 /***/ 0:
-/*!*************************************************!*\
-  !*** multi ./js/app/app.js ./js/app/counter.js ***!
-  \*************************************************/
+/*!*********************************************************************!*\
+  !*** multi ./js/app/app.js ./js/app/counter.js ./js/app/gallery.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./js/app/app.js */\"./js/app/app.js\");\nmodule.exports = __webpack_require__(/*! ./js/app/counter.js */\"./js/app/counter.js\");\n\n\n//# sourceURL=webpack:///multi_./js/app/app.js_./js/app/counter.js?");
+eval("__webpack_require__(/*! ./js/app/app.js */\"./js/app/app.js\");\n__webpack_require__(/*! ./js/app/counter.js */\"./js/app/counter.js\");\nmodule.exports = __webpack_require__(/*! ./js/app/gallery.js */\"./js/app/gallery.js\");\n\n\n//# sourceURL=webpack:///multi_./js/app/app.js_./js/app/counter.js_./js/app/gallery.js?");
 
 /***/ })
 

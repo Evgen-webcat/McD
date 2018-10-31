@@ -12,7 +12,9 @@ $(document).ready(function () {
         var screen = $(this).attr('href');
         var scrollTo = $(screen).offset().top;
 
-        $('html, body').animate({scrollTop: scrollTo}, 1000);
+        $('html, body').animate({
+            scrollTop: scrollTo
+        }, 1000);
 
         if ($(window).width() < 1025) {
             $('.main_menu').slideUp();
@@ -30,6 +32,10 @@ $(document).ready(function () {
     });
 
     $('.screen_header').click(function () {
+        var scrollTo = $(this).offset().top;
+        $('html, body').animate({
+            scrollTop: scrollTo
+        }, 1000);
         $(this).parent().find('.screen_paragraph').slideToggle();
     });
 
@@ -42,11 +48,10 @@ $(document).ready(function () {
         $('.star_date_info').fadeOut(100);
     });
 
-    $('.instagram_photo').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        gallery: {
-            enabled: true
-        }
-    });
+    setTimeout(function () {
+        $('.left_hand, .center_hand, .right_hand, .hands_1, .hands_2, .hands_3').removeClass('hidden');
+    }, 500);
+    setTimeout(function () {
+        $('.left_hand, .center_hand, .right_hand, .hands_1, .hands_2, .hands_3').addClass('anim');
+    }, 2500);
 });
